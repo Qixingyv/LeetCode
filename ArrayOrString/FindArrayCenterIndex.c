@@ -1,4 +1,4 @@
-//题目链接：https://leetcode.cn/leetbook/read/array-and-string/yf47s/
+//寻找数组中心下标 题目链接：https://leetcode.cn/leetbook/read/array-and-string/yf47s/
 #include<stdio.h>
 
 /*
