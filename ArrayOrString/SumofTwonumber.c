@@ -1,37 +1,23 @@
-// 2023/04/05 题目链接：https://leetcode.cn/leetbook/read/array-and-string/cnkjg/
+// Paolua 2023/04/09 两数相加 https://leetcode.cn/problems/two-sum/
+int* twoSum(int* nums, int numsSize, int target, int* returnSize){
 
-/*
-    numbers为传入的数组，numbersSize为传入数组场地
-    returnSize 为返回的数组大小
-    C语言环境中，传入数组下标从0开始
-
-    算法思想：
-        1. 双指针指向第一个和最后一个元素
-        2. 对两个元素进行相加，如果和大于target，最后一个元素前移
-        3. 如果和小于target，第一个元素后移
-*/
-int* twoSum(int* numbers, int numbersSize, int target, int* returnSize){
-
-    int index1 = 0;
-    int index2 = numbersSize-1;
-
-    while(numbers[index1] + numbers[index2] != target)
+    int index1,index2;
+    for(index1 = 0;index1<numsSize;index1++)
     {
-        if(numbers[index1] + numbers[index2] > target)
+        for(index2 = index1+1;index2<numsSize;index2++)
         {
-            index2--;
-        }
-
-        if(numbers[index1] + numbers[index2] < target)
-        {
-            index1++;
+            if(nums[index1] + nums[index2] == target)
+            {
+                int* arr = (int*)malloc(2*sizeof(int));
+                arr[0] = index1;
+                arr[1] = index2;
+                *returnSize = 2;
+                return arr;
+            }
         }
     }
 
-    int* arr = (int*)malloc(2*sizeof(int));
-    arr[0] = index1+1;
-    arr[1] = index2+1;
-    *returnSize = 2;
-    return arr;
-    
+    *returnSize = 0;
+    return NULL;
+
 }
